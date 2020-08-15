@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>UI Engineer Coding Exercise</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="style.css">
+   <script src="main.js"></script>
+</head>
+<body class="jquery">
+  <section class="classname" id="container">
+  <div class="color1"> 1 </div>
+  <div class="color2"> 2 </div>
+  <div class="color3"> 3 </div>
+  <div class="color4"> 4 </div>
+  <div class="color5"> 5 </div>
+  <div class="color6"> 6 </div>
+  <div class="color7"> 7 </div>
+  <div class="color8"> 8 </div>
+  <div class="color9"> 9 </div>
+</section>
+<span class ="divbtn">
+<button id="shuffle">Shuffle</button>
+<!-- <button id="Short">Refrash</button> -->
+<button href="javascript:;" onclick="sorting()">Sort</button>
+</span>
+   <footer>Shuffle and shot by Mayur Walzade</footer>
+
+<script>
+   $container = $("#container");
+$divList = $("div");
+
+$("#shuffle").on("click", function() {
+  $divCopy = $divList.clone(true);
+  $("div").remove();
+
+  while ($divCopy.length > 0) {
+    var randomIndex = Math.floor(Math.random() * $divList.length);
+
+    $container.append($divCopy.splice(randomIndex, 1));
+  }
+});
+    $(document).ready(function(){
+        $("#Short").click(function(){
+            location.reload(true);
+        });
+    });
+    var tdData = Array();
+
+$(document).ready(function(){
+    $('div').each(function(i){
+        tdData [i] = $(this).text();
+    });
+    
+});
+
+function sorting(){
+    
+    var sortedData = tdData.sort();
+    $('div').each(function(i){
+        $(this).text(sortedData[i]);
+    }); 
+}
+   </script>
+</body>
+</html>
